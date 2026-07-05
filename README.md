@@ -14,7 +14,8 @@ During my troubleshooting, I was able to access the VM through the **Proxmox web
 I also found that if the computer is joined to an **Active Directory** domain, an offline **Domain Controller** can prevent domain users from authenticating over RDP.
 ![DC offline](https://github.com/MikeMilenk/RDP-Unable-to-Connect/blob/0b66f84284cce4790b4cfcad7fd9930ff243c2c5/Images/0.png)
 
-In my case, the issue was that the user had not been added to the **Remote Desktop Users** local group.
+In my case, both the **Active Directory** server and the user account were available, so the issue turned out to be that the user had not been added to the **Remote Desktop Users** local group.
+![DC and VM online](https://github.com/MikeMilenk/RDP-Unable-to-Connect/blob/729e03ca181acfd497204b18d1eff59ff1200e35/Images/1.1.png)
 
 ## Steps
 
