@@ -6,7 +6,13 @@ There are several reasons why you may be unable to connect to a virtual machine 
 * Incorrect IP address or hostname.
 * Incorrect credentials.
 * Firewall restrictions.
+* AD-DC is not running or shut down.
 * The user is not allowed to connect via Remote Desktop.
+
+During my troubleshooting, I was able to access the VM through the **Proxmox web console**, but I still could not connect using **RDP (or Windows App)**. This confirmed that the VM itself was running, so the issue was related to Remote Desktop configuration, user permissions, networking, or Windows settings.
+
+I also found that if the computer is joined to an **Active Directory** domain, an offline **Domain Controller** can prevent domain users from authenticating over RDP.
+![DC offline](https://github.com/MikeMilenk/RDP-Unable-to-Connect/blob/0b66f84284cce4790b4cfcad7fd9930ff243c2c5/Images/0.png)
 
 In my case, the issue was that the user had not been added to the **Remote Desktop Users** local group.
 
